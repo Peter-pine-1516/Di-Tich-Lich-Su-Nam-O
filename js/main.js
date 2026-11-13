@@ -13,13 +13,12 @@ document.addEventListener("DOMContentLoaded", () => {
     currentLayerName: "google-hybrid",
     markers: {},
     popups: {},
-    routePolyline: null,
-    showRoute: true,
     activeSiteId: "dinh-lang-nam-o",
     currentFilter: "all",
     tourInterval: null,
     tourIndex: 0,
-    userImages: {}
+    userImages: {},
+    customVideos: {}
   };
 
   function loadStoredImages() {
@@ -62,12 +61,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
       // Khung CHỈ HIỆN ẢNH LỚN kèm tiêu đề tối giản nổi góc dưới
       slide.innerHTML = `
-        <div class="photo-slide-card ${hasImage ? 'has-image' : ''}" id="photo-slide-${site.id}" onclick="scrollToRelicCard('${site.id}')" title="Nhấp để xem thẻ chi tiết của ${site.title}">
+        <div class="photo-slide-card ${hasImage ? 'has-image' : ''}" id="photo-slide-${site.id}" onclick="openDetailModal('${site.id}')" title="Nhấp để xem ảnh, video và thông tin chi tiết của ${site.title}">
           
           <!-- Khung ảnh lớn có Skeleton Shimmer cao cấp -->
           <div class="photo-slide-skeleton">
             <span class="slide-skel-icon"><i class="fa-regular fa-image"></i></span>
-            <span class="slide-skel-badge"><i class="fa-solid fa-arrow-pointer"></i> Nhấp xem thẻ chi tiết</span>
+            <span class="slide-skel-badge"><i class="fa-solid fa-arrow-pointer"></i> Nhấp xem chi tiết</span>
           </div>
 
           <img src="${imgSrc}" class="slide-real-image" id="slide-img-${site.id}" alt="${site.title}" onerror="handleSlideImgError('${site.id}')" onload="handleSlideImgSuccess('${site.id}')" />
@@ -79,8 +78,8 @@ document.addEventListener("DOMContentLoaded", () => {
               <span>${site.number}. ${site.title}</span>
             </div>
             <div class="slide-overlay-hint">
-              <span>Xem thẻ</span>
-              <i class="fa-solid fa-arrow-down"></i>
+              <span>Xem chi tiết & Media</span>
+              <i class="fa-solid fa-expand"></i>
             </div>
           </div>
 
@@ -161,7 +160,7 @@ document.addEventListener("DOMContentLoaded", () => {
     targetCard.scrollIntoView({ behavior: "smooth", block: "center" });
 
     // Kích hoạt hiệu ứng phát sáng viền và nhấp nháy thu hút sự chú ý
-    document.querySelectorAll(".relic-full-card").forEach(c => c.classList.remove("card-targeted"));
+    document.querySelectorAll(".relic-simple-card").forEach(c => c.classList.remove("card-targeted"));
     targetCard.classList.add("card-targeted");
 
     setTimeout(() => {
@@ -177,10 +176,11 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   // =========================================================================
-  // 2. RENDER HỆ THỐNG THẺ 7 DI TÍCH ĐẦY ĐỦ (ĐÍCH ĐẾN CỦA CAROUSEL)
+  // 2. RENDER LƯỚI THẺ DI TÍCH TINH GỌN (CHỈ HIỂN THỊ ẢNH VÀ TÊN DI TÍCH)
   // =========================================================================
   function renderRelicsCardsGrid() {
     const grid = document.getElementById("relics-cards-grid");
+    if (!grid) return;
     grid.innerHTML = "";
 
     const filtered = NAM_O_HERITAGE_SITES.filter(site => {
@@ -191,52 +191,45 @@ document.addEventListener("DOMContentLoaded", () => {
       const pinColor = getPinColor(site.number);
       const hasImage = !!state.userImages[site.id];
       const imgSrc = state.userImages[site.id] || site.image;
+      const hasVideo = !!(site.guideVideo || (site.videos && site.videos.length > 0));
 
       const card = document.createElement("article");
-      card.className = "relic-full-card";
+      card.className = "relic-simple-card";
       card.id = `card-${site.id}`;
+      card.title = `Nhấp xem hình ảnh, video và thông tin chi tiết của ${site.title}`;
+      card.onclick = () => openDetailModal(site.id);
 
       card.innerHTML = `
-        <!-- Khung ảnh thẻ có Skeleton -->
-        <div class="card-media-header ${hasImage ? 'has-image' : ''}" id="card-media-${site.id}" onclick="triggerUpload('${site.id}')">
-          <div class="photo-slide-skeleton" title="Nhấp để tải ảnh lên cho ${site.title}">
+        <!-- Khung ảnh di tích có Skeleton Loading -->
+        <div class="relic-simple-media ${hasImage ? 'has-image' : ''}" id="card-media-${site.id}">
+          <div class="photo-slide-skeleton">
             <span class="slide-skel-icon" style="font-size:1.8rem;"><i class="fa-regular fa-image"></i></span>
-            <span class="slide-skel-badge"><i class="fa-solid fa-cloud-arrow-up"></i> Tải ảnh lên</span>
+            <span class="slide-skel-badge"><i class="fa-solid fa-arrow-pointer"></i> Nhấp xem chi tiết</span>
           </div>
-          <img src="${imgSrc}" class="card-media-img" id="card-img-${site.id}" alt="${site.title}" onerror="handleCardImgError('${site.id}')" onload="handleCardImgSuccess('${site.id}')" />
+          <img src="${imgSrc}" class="relic-simple-img" id="card-img-${site.id}" alt="${site.title}" onerror="handleCardImgError('${site.id}')" onload="handleCardImgSuccess('${site.id}')" />
+          
+          <!-- Huy hiệu số thứ tự di tích -->
+          <div class="relic-simple-num-badge" style="background:${pinColor};">
+            <span>${site.number}</span>
+          </div>
+
+          <!-- Nhãn thông báo video nếu di tích có video -->
+          ${hasVideo ? `
+            <div class="relic-simple-video-pill">
+              <i class="fa-solid fa-play"></i>
+              <span>${site.id === 'mieu-ba-bo-bo' ? 'Video chỉ đường' : 'Video'}</span>
+            </div>
+          ` : ''}
+
+          <!-- Lớp phủ gợi ý khi rê chuột -->
+          <div class="relic-simple-overlay-hint">
+            <span><i class="fa-solid fa-arrow-up-right-from-square"></i> Xem chi tiết & Media</span>
+          </div>
         </div>
 
-        <div class="card-body-content">
-          <div class="card-tag-row">
-            <span class="card-num-tag" style="color:${pinColor}; background:${pinColor}15;">
-              DI TÍCH ${site.number} • ${site.category}
-            </span>
-            <span style="font-size:0.75rem; color:#f29900; font-weight:700;">★ 5.0</span>
-          </div>
-
-          <h3 class="card-title-text">${site.title}</h3>
-
-          <div class="card-address-text">
-            <i class="fa-solid fa-map-pin" style="color:var(--google-blue); font-size:0.75rem;"></i>
-            <span>${site.address}</span>
-          </div>
-
-          <p class="card-desc-text">${site.shortDesc}</p>
-
-          <ul class="card-highlights-list">
-            ${site.highlights.slice(0, 2).map(h => `<li>${h}</li>`).join("")}
-          </ul>
-
-          <div class="card-footer-buttons">
-            <button class="btn-inspector-primary" onclick="focusRelicOnMap('${site.id}')" title="Xem trên bản đồ">
-              <i class="fa-solid fa-location-crosshairs"></i>
-              <span>Xem trên bản đồ</span>
-            </button>
-            <button class="btn-inspector-outline" onclick="openDetailModal('${site.id}')">
-              <span>Lịch sử chi tiết</span>
-              <i class="fa-solid fa-arrow-right" style="font-size:0.7rem;"></i>
-            </button>
-          </div>
+        <!-- Tên di tích tinh gọn -->
+        <div class="relic-simple-caption">
+          <h3 class="relic-simple-title">${site.title}</h3>
         </div>
       `;
 
@@ -303,21 +296,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     state.baseLayers["google-hybrid"].addTo(state.map);
 
-    drawWalkingRoute();
     renderMapMarkers();
     updateInspector(NAM_O_HERITAGE_SITES[0]);
-  }
-
-  function drawWalkingRoute() {
-    if (state.routePolyline) state.map.removeLayer(state.routePolyline);
-
-    state.routePolyline = L.polyline(MAP_CONFIG.walkingRoute, {
-      color: "#1a73e8",
-      weight: 3.5,
-      opacity: 0.85,
-      dashArray: "6, 8",
-      lineCap: "round"
-    }).addTo(state.map);
   }
 
   function renderMapMarkers() {
@@ -361,8 +341,8 @@ document.addEventListener("DOMContentLoaded", () => {
           <div style="font-size:0.95rem; font-weight:700; color:#0f172a; margin-top:4px;">${site.title}</div>
           <div style="font-size:0.76rem; color:#475569; line-height:1.45;">${site.shortDesc}</div>
           <div style="display:flex; gap:6px; margin-top:8px;">
-            <button onclick="scrollToRelicCard('${site.id}')" style="background:#1a73e8; color:#fff; border:none; padding:5px 12px; border-radius:14px; font-size:0.74rem; font-weight:600; cursor:pointer;">
-              Xem thẻ
+            <button onclick="openDetailModal('${site.id}')" style="background:#1a73e8; color:#fff; border:none; padding:5px 12px; border-radius:14px; font-size:0.74rem; font-weight:600; cursor:pointer;">
+              Xem chi tiết
             </button>
             <a href="${site.googleMapsUrl}" target="_blank" style="background:#fff; color:#1a73e8; border:1px solid #dadce0; padding:5px 12px; border-radius:14px; font-size:0.74rem; text-decoration:none; font-weight:600;">
               Chỉ đường
@@ -392,7 +372,7 @@ document.addEventListener("DOMContentLoaded", () => {
       });
 
       marker.on("click", () => {
-        scrollToRelicCard(site.id);
+        openDetailModal(site.id);
       });
 
       state.markers[site.id] = marker;
@@ -501,9 +481,54 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // =========================================================================
-  // 5. MODAL CHI TIẾT LỊCH SỬ DI TÍCH (LIGHTBOX)
+  // 5. MODAL CHI TIẾT LỊCH SỬ, BỘ SƯU TẬP ẢNH & VIDEO LIÊN QUAN
   // =========================================================================
-  window.openDetailModal = function(siteId) {
+  function initModalTabs() {
+    document.querySelectorAll(".modal-tab-btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const tab = btn.dataset.tab;
+        switchModalTab(tab);
+      });
+    });
+
+    // Lắng nghe chọn file video từ máy
+    const videoInput = document.getElementById("relic-video-input");
+    if (videoInput) {
+      videoInput.addEventListener("change", (e) => {
+        const file = e.target.files[0];
+        if (!file || !state.targetVideoSiteId) return;
+
+        const videoUrl = URL.createObjectURL(file);
+        state.customVideos[state.targetVideoSiteId] = videoUrl;
+
+        // Cập nhật lại khung video
+        const site = NAM_O_HERITAGE_SITES.find(s => s.id === state.targetVideoSiteId);
+        if (site) {
+          renderModalVideo(site);
+          const activePlayer = document.getElementById("modal-active-video-player");
+          if (activePlayer) {
+            activePlayer.src = videoUrl;
+            activePlayer.load();
+            activePlayer.play().catch(() => {});
+          }
+        }
+
+        videoInput.value = "";
+      });
+    }
+  }
+
+  function switchModalTab(tabKey) {
+    document.querySelectorAll(".modal-tab-btn").forEach(b => b.classList.remove("active"));
+    document.querySelectorAll(".modal-tab-pane").forEach(p => p.classList.remove("active"));
+
+    const targetBtn = document.getElementById(`tab-btn-${tabKey}`);
+    const targetPane = document.getElementById(`modal-pane-${tabKey}`);
+    if (targetBtn) targetBtn.classList.add("active");
+    if (targetPane) targetPane.classList.add("active");
+  }
+
+  window.openDetailModal = function(siteId, initialTab = "info") {
     const site = NAM_O_HERITAGE_SITES.find(s => s.id === siteId);
     if (!site) return;
 
@@ -512,6 +537,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const hasImage = !!state.userImages[site.id];
     const imgSrc = state.userImages[site.id] || site.image;
 
+    // 1. Cập nhật Hero Image
     const modalHero = document.getElementById("modal-hero-box");
     const modalImg = document.getElementById("modal-hero-img");
     modalImg.src = imgSrc;
@@ -521,6 +547,7 @@ document.addEventListener("DOMContentLoaded", () => {
       modalHero.classList.remove("has-image");
     }
 
+    // 2. Cập nhật Tiêu đề & Subtitle
     const modalBadge = document.getElementById("modal-badge");
     modalBadge.innerText = `DI TÍCH ${site.number} • ${site.category}`;
     modalBadge.style.color = pinColor;
@@ -529,6 +556,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("modal-title").innerText = site.title;
     document.getElementById("modal-subtitle").innerText = site.subTitle;
 
+    // 3. Tab 1: Thông tin & Lịch sử
     document.getElementById("modal-address").innerText = site.address;
     document.getElementById("modal-coords").innerText = `${site.coordinates.lat.toFixed(5)}, ${site.coordinates.lng.toFixed(5)} (${site.plusCode})`;
     document.getElementById("modal-era").innerText = site.era;
@@ -542,10 +570,194 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("modal-gmaps-link").href = site.googleMapsUrl;
     document.getElementById("modal-btn-upload").onclick = () => triggerUpload(site.id);
 
+    // 4. Tab 2: Render thư viện ảnh liên quan
+    renderModalGallery(site);
+
+    // 5. Tab 3: Render video liên quan & Hướng dẫn đường đi
+    renderModalVideo(site);
+
+    // 6. Kích hoạt tab mặc định
+    switchModalTab(initialTab);
+
+    // Mở modal
     document.getElementById("relic-modal").classList.add("open");
   };
 
+  function renderModalGallery(site) {
+    const galleryGrid = document.getElementById("modal-gallery-grid");
+    if (!galleryGrid) return;
+    galleryGrid.innerHTML = "";
+
+    const imagesList = [];
+    const currentMainImg = state.userImages[site.id] || site.image;
+    if (currentMainImg) imagesList.push(currentMainImg);
+
+    if (site.gallery && Array.isArray(site.gallery)) {
+      site.gallery.forEach(img => {
+        if (!imagesList.includes(img)) imagesList.push(img);
+      });
+    }
+
+    const countEl = document.getElementById("modal-gallery-count");
+    if (countEl) countEl.innerText = imagesList.length;
+
+    imagesList.forEach((imgUrl, idx) => {
+      const item = document.createElement("div");
+      item.className = `gallery-thumb-item ${idx === 0 ? 'active' : ''}`;
+      item.title = "Nhấp để xem ảnh lớn ở khung phía trên";
+      item.innerHTML = `<img src="${imgUrl}" class="gallery-thumb-img" alt="${site.title}" onerror="this.parentElement.style.display='none'" />`;
+      item.onclick = () => {
+        document.querySelectorAll(".gallery-thumb-item").forEach(el => el.classList.remove("active"));
+        item.classList.add("active");
+        const modalImg = document.getElementById("modal-hero-img");
+        modalImg.src = imgUrl;
+        document.getElementById("modal-hero-box").classList.add("has-image");
+      };
+      galleryGrid.appendChild(item);
+    });
+  }
+
+  function renderModalVideo(site) {
+    const container = document.getElementById("modal-video-container");
+    if (!container) return;
+    container.innerHTML = "";
+
+    const tabVideoTitle = document.getElementById("tab-video-title");
+    const tabVideoBadge = document.getElementById("tab-video-badge");
+
+    // TRƯỜNG HỢP 1: MIẾU BÀ BÔ BÔ (VIDEO HƯỚNG DẪN ĐƯỜNG ĐI VÀO)
+    if (site.id === "mieu-ba-bo-bo") {
+      if (tabVideoTitle) tabVideoTitle.innerText = "Video Hướng Dẫn Đường Đi";
+      if (tabVideoBadge) {
+        tabVideoBadge.style.display = "inline-block";
+        tabVideoBadge.innerText = "Chỉ đường";
+        tabVideoBadge.style.background = "#fa7b17";
+      }
+
+      const guideVideoSrc = state.customVideos[site.id] || site.guideVideo?.src || "videos/huong-dan-mieu-ba-bo-bo.mp4";
+
+      container.innerHTML = `
+        <div class="modal-video-card">
+          <div class="modal-video-header">
+            <span class="modal-video-badge guide">
+              <i class="fa-solid fa-route"></i> Video Chỉ Dẫn Đường Đi
+            </span>
+            <h3 class="modal-video-title">${site.guideVideo?.title || "Video Hướng Dẫn Đường Đi Vào Miếu Bà Bô Bô"}</h3>
+            <p class="modal-video-desc">
+              ${site.guideVideo?.description || "Lối vào Miếu Bà Bô Bô nằm trong các ngõ cổ làng Nam Ô. Video ghi lại toàn bộ lộ trình từ đường lớn qua các ngã rẽ đến tận cổng miếu."}
+            </p>
+          </div>
+
+          <!-- Trình phát Video HTML5 -->
+          <div class="modal-video-wrapper">
+            <video id="modal-active-video-player" controls preload="metadata" playsinline poster="${site.image}">
+              <source src="${guideVideoSrc}" type="video/mp4">
+              Trình duyệt không hỗ trợ phát thẻ video.
+            </video>
+          </div>
+
+          <!-- Khung hướng dẫn thêm file video & chọn file từ máy -->
+          <div class="modal-video-helper-box" id="guide-video-helper">
+            <div class="helper-video-icon"><i class="fa-solid fa-route"></i></div>
+            <p class="helper-video-text">
+              <strong>Thêm video hướng dẫn:</strong> Sau khi bạn chỉnh sửa xong video, hãy đặt file vào thư mục: 
+              <br><span class="helper-video-code">Di_Tich_Lich_Su_Nam_O/videos/huong-dan-mieu-ba-bo-bo.mp4</span>
+            </p>
+            <div class="helper-video-actions">
+              <button class="btn-video-pick" onclick="triggerPickLocalVideo('mieu-ba-bo-bo')">
+                <i class="fa-solid fa-file-video"></i> Chọn file video từ máy (Xem thử ngay)
+              </button>
+            </div>
+          </div>
+        </div>
+      `;
+      return;
+    }
+
+    // TRƯỜNG HỢP 2: CÁC DI TÍCH CÓ VIDEO KHÁC (NHƯ NGHĨA TRỦNG NAM Ô)
+    const videos = site.videos || [];
+    if (videos.length > 0) {
+      if (tabVideoTitle) tabVideoTitle.innerText = "Video Tư Liệu";
+      if (tabVideoBadge) {
+        tabVideoBadge.style.display = "inline-block";
+        tabVideoBadge.innerText = videos.length;
+        tabVideoBadge.style.background = "#1a73e8";
+      }
+
+      const vidData = videos[0];
+      const vidSrc = state.customVideos[site.id] || vidData.src;
+
+      container.innerHTML = `
+        <div class="modal-video-card">
+          <div class="modal-video-header">
+            <span class="modal-video-badge">
+              <i class="fa-solid fa-film"></i> ${vidData.badge || "Thước Phim Tư Liệu"}
+            </span>
+            <h3 class="modal-video-title">${vidData.title}</h3>
+            ${vidData.description ? `<p class="modal-video-desc">${vidData.description}</p>` : ''}
+          </div>
+
+          <div class="modal-video-wrapper">
+            <video id="modal-active-video-player" controls preload="metadata" playsinline poster="${site.image}">
+              <source src="${vidSrc}" type="video/mp4">
+              Trình duyệt không hỗ trợ phát thẻ video.
+            </video>
+          </div>
+
+          <div class="modal-video-helper-box">
+            <div class="helper-video-actions">
+              <button class="btn-video-pick" onclick="triggerPickLocalVideo('${site.id}')">
+                <i class="fa-solid fa-file-video"></i> Đổi / Chọn video khác từ máy
+              </button>
+            </div>
+          </div>
+        </div>
+      `;
+      return;
+    }
+
+    // TRƯỜNG HỢP 3: CHƯA CÓ VIDEO
+    if (tabVideoTitle) tabVideoTitle.innerText = "Video Tư Liệu";
+    if (tabVideoBadge) tabVideoBadge.style.display = "none";
+
+    container.innerHTML = `
+      <div class="modal-video-card">
+        <div class="modal-video-helper-box" style="padding: 36px 20px;">
+          <div class="helper-video-icon" style="background:#f1f5f9; color:#64748b;">
+            <i class="fa-solid fa-film"></i>
+          </div>
+          <h3 style="font-size:1.1rem; font-weight:700; color:var(--text-primary); margin:0;">Chưa có video cho di tích này</h3>
+          <p class="helper-video-text">
+            Bạn có thể thêm file video vào thư mục <span class="helper-video-code">Di_Tich_Lich_Su_Nam_O/videos/</span> hoặc chọn file video từ máy tính để xem thử tại đây.
+          </p>
+          <div class="helper-video-actions">
+            <button class="btn-video-pick" onclick="triggerPickLocalVideo('${site.id}')">
+              <i class="fa-solid fa-cloud-arrow-up"></i> Chọn file video từ máy tính
+            </button>
+          </div>
+        </div>
+      </div>
+    `;
+  }
+
+  window.triggerPickLocalVideo = function(siteId) {
+    state.targetVideoSiteId = siteId || state.activeSiteId;
+    const input = document.getElementById("relic-video-input");
+    if (input) input.click();
+  };
+
+  window.focusRelicFromModal = function() {
+    const siteId = state.activeSiteId;
+    closeDetailModal();
+    focusRelicOnMap(siteId);
+  };
+
   window.closeDetailModal = function() {
+    // Dừng phát video nếu đang chạy
+    const player = document.getElementById("modal-active-video-player");
+    if (player) {
+      player.pause();
+    }
     document.getElementById("relic-modal").classList.remove("open");
   };
 
@@ -614,18 +826,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  const routeToggleBtn = document.getElementById("btn-toggle-walking-route");
-  routeToggleBtn.addEventListener("click", () => {
-    state.showRoute = !state.showRoute;
-    if (state.showRoute) {
-      drawWalkingRoute();
-      routeToggleBtn.classList.add("active");
-    } else {
-      if (state.routePolyline) state.map.removeLayer(state.routePolyline);
-      routeToggleBtn.classList.remove("active");
-    }
-  });
-
   document.getElementById("btn-recenter-view").addEventListener("click", () => {
     state.map.flyTo(MAP_CONFIG.center, MAP_CONFIG.zoom, { duration: 0.8 });
   });
@@ -677,6 +877,7 @@ document.addEventListener("DOMContentLoaded", () => {
   loadStoredImages();
   renderPhotoCarouselSlides();
   renderRelicsCardsGrid();
+  initModalTabs();
   initSwiper();
   initMap();
 });
