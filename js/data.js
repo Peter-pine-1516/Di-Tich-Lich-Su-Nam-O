@@ -13,11 +13,15 @@ const NAM_O_HERITAGE_SITES = [
     categoryKey: "community",
     badge: "Di tích cấp Thành phố",
     era: "Thế kỷ XV - XVI (Thời mở cõi)",
-    coordinates: { lat: 16.1189, lng: 108.1288 },
+    coordinates: { lat: 16.110907894808044, lng: 108.12753369774593 },
     address: "Phố 37 Nam Ô 1, ven sông Cu Đê, P. Hòa Hiệp Nam, Q. Liên Chiểu, TP. Đà Nẵng",
-    plusCode: "449H+GG Liên Chiểu, Đà Nẵng",
-    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=16.1189,108.1288",
-    image: "images/dinh-lang-nam-o.jpg",
+    plusCode: "446H+92 Liên Chiểu, Đà Nẵng",
+    googleMapsUrl: "https://maps.app.goo.gl/EE6TszvU6inh6WnZ9",
+    image: "images/dinh-lang-nam-o.webp",
+    gallery: [
+      "images/dinh-lang-nam-o.webp"
+    ],
+    videos: [],
     shortDesc: "Ngôi đình cổ thờ cúng các bậc tiền hiền khai sáng làng chài Nam Ô, ban đầu tọa lạc tại thế đất phong thủy 'ngọc ngậm trong hàm phụng' bên vịnh Đà Nẵng bán nguyệt.",
     fullHistory: [
       "Đình làng Nam Ô thuộc làng chài cổ Nam Ô ở phường Hòa Hiệp Nam, quận Liên Chiểu, thành phố Đà Nẵng. Đây là một trong bảy cụm di tích lịch sử văn hóa của 'Nam Ô thất bảo' đã được xếp hạng di tích cấp thành phố.",
@@ -42,11 +46,15 @@ const NAM_O_HERITAGE_SITES = [
     categoryKey: "sea",
     badge: "Di tích cấp Thành phố",
     era: "Khởi dựng năm 1802 (Thời vua Gia Long)",
-    coordinates: { lat: 16.1163, lng: 108.1313 },
+    coordinates: { lat: 16.115328118990227, lng: 108.13053779758238 },
     address: "Tổ 47, khối phố Nam Ô 1, P. Hòa Hiệp Nam, Q. Liên Chiểu, TP. Đà Nẵng",
-    plusCode: "448J+47F Nam Ô, Liên Chiểu, Đà Nẵng",
-    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=16.1163,108.1313",
+    plusCode: "448J+46 Liên Chiểu, Đà Nẵng",
+    googleMapsUrl: "https://maps.app.goo.gl/Pyhdtg3YrB3RWhVE8",
     image: "images/lang-ngu-ong.jpg",
+    gallery: [
+      "images/lang-ngu-ong.jpg"
+    ],
+    videos: [],
     shortDesc: "Được dựng từ năm 1802 trên nền đền thờ Hải thần Chăm Pa, nơi thờ cốt cá Ông – vị phúc thần bảo hộ ngư dân vượt qua sóng gió và là tâm điểm Lễ hội Cầu Ngư rực rỡ.",
     fullHistory: [
       "Đối với những làng chài ven biển Việt Nam, lễ hội Cầu Ngư và công trình thờ tự cá Ông (cá voi) là nét văn hóa tín ngưỡng đặc trưng thiêng liêng nhất. Lăng Cá Ông Nam Ô là nơi phụng thờ ngọc cốt của cá Ông – loài cá được xem là 'thần hộ mệnh', cứu tinh của ngư dân mỗi khi biển nổi giông bão đưa tàu thuyền cập bến an toàn.",
@@ -71,11 +79,15 @@ const NAM_O_HERITAGE_SITES = [
     categoryKey: "champa",
     badge: "Di tích cấp Thành phố",
     era: "Thế kỷ X - XV (Thời kỳ Vương quốc Chăm Pa)",
-    coordinates: { lat: 16.1165, lng: 108.1311 },
+    coordinates: { lat: 16.115226406425457, lng: 108.1305741322122 },
     address: "Khuôn viên Lăng Cá Ông, Nam Ô 1, P. Hòa Hiệp Nam, Q. Liên Chiểu, TP. Đà Nẵng",
-    plusCode: "448J+47F Liên Chiểu, Đà Nẵng",
-    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=16.1165,108.1311",
-    image: "images/gieng-lang.jpg",
+    plusCode: "448J+36 Liên Chiểu, Đà Nẵng",
+    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=16.115226406425457,108.1305741322122",
+    image: "images/gieng-lang.webp",
+    gallery: [
+      "images/gieng-lang.webp"
+    ],
+    videos: [],
     shortDesc: "Giếng cổ Chăm Pa hàng trăm năm tuổi kỳ lạ: nằm sát mép sóng biển mặn nhưng nước luôn ngọt thanh, trong vắt và không bao giờ cạn cả trong mùa hạn hán khốc liệt.",
     fullHistory: [
       "Giếng Lăng (hay còn gọi là Giếng Hời Nam Ô) sở hữu một vị trí địa lý vô cùng độc đáo ngay dưới chân đèo Hải Vân hiểm trở, kề bên cửa biển. Đây là một trong những chứng tích cổ xưa nhất minh chứng cho thời kỳ cộng cư và phát triển rực rỡ của văn minh Chăm Pa trên dải đất Đà Nẵng.",
@@ -100,11 +112,15 @@ const NAM_O_HERITAGE_SITES = [
     categoryKey: "shrine",
     badge: "Di tích cấp Thành phố",
     era: "Thế kỷ XVII - XVIII (Giai đoạn di dân Đàng Trong)",
-    coordinates: { lat: 16.1188, lng: 108.1316 },
+    coordinates: { lat: 16.117813905410834, lng: 108.13051477389537 },
     address: "Vách đồi ghềnh đá Rạn Nam Ô, tổ 37 Nam Ô 1, P. Hòa Hiệp Nam, Q. Liên Chiểu",
-    plusCode: "449J+36R Nam Ô 1, Liên Chiểu, Đà Nẵng",
-    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=16.1188,108.1316",
+    plusCode: "449J+46 Liên Chiểu, Đà Nẵng",
+    googleMapsUrl: "https://maps.app.goo.gl/NvikdMqoj2uPmXPH8",
     image: "images/mieu-ba-lieu-hanh.jpg",
+    gallery: [
+      "images/mieu-ba-lieu-hanh.jpg"
+    ],
+    videos: [],
     shortDesc: "Tọa lạc trên đồi cao lộng gió trông ra ghềnh rạn biển cả, nơi Thánh Mẫu Liễu Hạnh được bản địa hóa thành vị thần bảo hộ ngư trường cho tàu thuyền dong buồm.",
     fullHistory: [
       "Miếu Bà Liễu Hạnh tại cụm di tích Nam Ô không chỉ là một công trình tín ngưỡng đơn thuần mà còn là điểm hội tụ đặc sắc của lịch sử di dân mở cõi Đàng Trong và tâm thức người dân sông nước.",
@@ -129,11 +145,30 @@ const NAM_O_HERITAGE_SITES = [
     categoryKey: "champa",
     badge: "Di tích cấp Thành phố",
     era: "Khởi dựng trước thế kỷ XIX (Hơn 150 năm tôn tạo)",
-    coordinates: { lat: 16.1161, lng: 108.1294 },
+    coordinates: { lat: 16.11737077883045, lng: 108.12926576991136 },
     address: "Khối phố Nam Ô III (Khối 3), P. Hòa Hiệp Nam, Q. Liên Chiểu, TP. Đà Nẵng",
-    plusCode: "448H+CR Liên Chiểu, Đà Nẵng",
-    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=16.1161,108.1294",
-    image: "images/mieu-ba-bo-bo.jpg",
+    plusCode: "448H+WP Liên Chiểu, Đà Nẵng",
+    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=16.11737077883045,108.12926576991136",
+    image: "images/mieu-ba-bo-bo.png",
+    gallery: [
+      "images/mieu-ba-bo-bo.png"
+    ],
+    guideVideo: {
+      title: "Video Hướng Dẫn Đường Đi Vào Miếu Bà Bô Bô",
+      src: "videos/huong-dan-mieu-ba-bo-bo.mp4",
+      description: "Video ghi lại lộ trình di chuyển chi tiết từ trục đường chính qua các ngõ nhỏ trong làng cổ Nam Ô vào tận cổng Miếu Bà Bô Bô.",
+      badge: "Hướng Dẫn Đường Đi",
+      isGuide: true
+    },
+    videos: [
+      {
+        title: "Video Hướng Dẫn Đường Đi Vào Miếu Bà Bô Bô",
+        src: "videos/huong-dan-mieu-ba-bo-bo.mp4",
+        description: "Lối vào Miếu Bà Bô Bô qua các ngõ nhỏ trong làng cổ, video này sẽ hướng dẫn chi tiết đường đi từ ngã ba chính đến tận cổng miếu.",
+        badge: "Hướng Dẫn Đường Đi",
+        isGuide: true
+      }
+    ],
     shortDesc: "Ngôi miếu cổ kính hơn 150 năm bảo tồn vẹn nguyên nét kiến trúc kết hợp vật liệu gạch Chăm và tay nghề thợ Việt, minh chứng cho sự dung hợp văn hóa Chăm - Việt sâu sắc.",
     fullHistory: [
       "Miếu Bà Bô Bô là một thành tố đặc biệt trong cụm di tích Nam Ô, phụng thờ vị phúc thần người Chăm có danh xưng tôn kính 'Bô Bô Phu Nhân' cùng các nữ thần khác như Thiên Y A Na (vị thần Mẹ xứ sở cai quản đất đai, sông biển).",
@@ -158,11 +193,23 @@ const NAM_O_HERITAGE_SITES = [
     categoryKey: "history",
     badge: "Di tích Lịch sử cấp Thành phố",
     era: "Khởi lập năm 1858 - 1860 (Thời vua Tự Đức)",
-    coordinates: { lat: 16.1147, lng: 108.1285 },
+    coordinates: { lat: 16.115116402388782, lng: 108.12830718159184 },
     address: "Khu vực K884 Nguyễn Lương Bằng, P. Hòa Hiệp Nam, Q. Liên Chiểu, TP. Đà Nẵng",
-    plusCode: "447H+VX Liên Chiểu, Đà Nẵng",
-    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=16.1147,108.1285",
+    plusCode: "448H+28 Liên Chiểu, Đà Nẵng",
+    googleMapsUrl: "https://maps.app.goo.gl/Wf91J5P9F4rgxbiP9",
     image: "images/nghia-trung-nam-o.jpg",
+    gallery: [
+      "images/nghia-trung-nam-o.jpg"
+    ],
+    videos: [
+      {
+        title: "Thước Phim Tư Liệu Nghĩa Trủng Nam Ô",
+        src: "videos/nghia-trung-nam-o.mp4",
+        description: "Thước phim tư liệu ghi lại khuôn viên và các phần mộ nghĩa sĩ trận vong năm 1858 tại Nghĩa Trủng Nam Ô.",
+        badge: "Phim Tư Liệu",
+        isGuide: false
+      }
+    ],
     shortDesc: "Nơi quy tập và an nghỉ của hàng ngàn tướng sĩ, lính trạm triều đình và dân binh đã anh dũng hy sinh vì nước trong trận đầu kháng chiến chống liên quân Pháp - Tây Ban Nha (1858).",
     fullHistory: [
       "Nghĩa Trủng Nam Ô là một quần thể lăng mộ lịch sử linh thiêng, nơi yên nghỉ ngàn thu của các tướng sĩ, nghĩa binh triều Nguyễn cùng đông đảo người dân địa phương đã xả thân vị quốc trong những ngày đầu tiếng súng xâm lược nổ ra tại cửa biển Đà Nẵng.",
@@ -187,11 +234,15 @@ const NAM_O_HERITAGE_SITES = [
     categoryKey: "history",
     badge: "Di tích Lịch sử cấp Thành phố",
     era: "Khởi lập 1858 - 1860 (Sắc dụ Tự Đức), tôn tạo 1889 (Thành Thái)",
-    coordinates: { lat: 16.1161, lng: 108.1318 },
+    coordinates: { lat: 16.11533029328771, lng: 108.1306777047113 },
     address: "Tổ 47, khối phố Nam Ô 1 (gần Lăng Ông), P. Hòa Hiệp Nam, Q. Liên Chiểu",
-    plusCode: "448J+47F Nam Ô 1, Liên Chiểu, Đà Nẵng",
-    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=16.1161,108.1318",
-    image: "images/dinh-am-linh.jpg",
+    plusCode: "448J+47 Liên Chiểu, Đà Nẵng",
+    googleMapsUrl: "https://maps.app.goo.gl/NXG1Y2rHotR1F53u8",
+    image: "images/dinh-am-linh.webp",
+    gallery: [
+      "images/dinh-am-linh.webp"
+    ],
+    videos: [],
     shortDesc: "Khởi đầu từ sắc dụ vua Tự Đức nhằm tri ân các tử sĩ kháng Pháp năm 1858 và thờ phụng thập loại chúng sinh, thể hiện trọn vẹn nét đẹp nhân văn cao cả của người dân đất biển.",
     fullHistory: [
       "Dinh Âm Linh (còn được nhân dân quen gọi là Miếu Âm Hồn hay Dinh Cô Hồn) là một di tích văn hóa lịch sử mang đậm tính nhân văn sâu sắc của cộng đồng làng chài Nam Ô.",
@@ -211,18 +262,9 @@ const NAM_O_HERITAGE_SITES = [
 
 // Bản đồ tâm điểm (Center point: Làng cổ Nam Ô)
 const MAP_CONFIG = {
-  center: [16.1168, 108.1304],
+  center: [16.1150, 108.1296],
   zoom: 16,
   minZoom: 14,
-  maxZoom: 19,
-  walkingRoute: [
-    [16.1189, 108.1288], // 01. Đình làng Nam Ô
-    [16.1188, 108.1316], // 04. Miếu Bà Liễu Hạnh (ven ghềnh biển)
-    [16.1165, 108.1311], // 03. Giếng Lăng
-    [16.1163, 108.1313], // 02. Lăng Ngư Ông
-    [16.1161, 108.1318], // 07. Dinh Âm Linh
-    [16.1161, 108.1294], // 05. Miếu Bà Bô Bô
-    [16.1147, 108.1285]  // 06. Nghĩa Trủng Nam Ô
-  ]
+  maxZoom: 19
 };
 
