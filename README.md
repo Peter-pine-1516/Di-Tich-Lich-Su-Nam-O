@@ -4,40 +4,86 @@
 
 ---
 
-## 🌟 CẬP NHẬT GIAO DIỆN MỚI: ULTRA-SMOOTH TOUCH CAROUSEL & LIGHT THEME
+## ⚡ HƯỚNG DẪN KHỞI CHẠY (NPM RUN DEV)
 
-Landing Page đã được nâng cấp với trải nghiệm mượt mà (60fps physics) giống các sản phẩm công nghệ hàng đầu thế giới:
+Dự án đã được module hóa hoàn chỉnh với **Vite**:
 
-1. **Touch Carousel Siêu Mượt (Swiper.js Engine)**:
-   - Tích hợp thanh trượt cảm ứng (Touch / Mouse drag) mượt mà cho toàn bộ 7 di tích lịch sử.
-   - Hỗ trợ vuốt chạm bằng ngón tay trên điện thoại hoặc kéo chuột trên máy tính với hiệu ứng quán tính (momentum physics).
-   - Mỗi thẻ di tích trong Carousel bao gồm:
-     - Khung ảnh **Apple / Google Light Shimmer Skeleton** (chuẩn bị sẵn để bạn nạp ảnh sau).
-     - Huy hiệu số thứ tự (01 - 07) & phân loại di tích.
-     - Tên di tích, địa chỉ, tóm tắt lịch sử 2 câu.
-     - Nút **"Xem trên bản đồ"** (tự động cuộn êm xuống bản đồ và zoom vào điểm đó) & Nút **"Chi tiết"** (mở cửa sổ bài viết lịch sử đầy đủ).
-   - Có bộ nút mũi tên tròn điều hướng và thanh phân trang chấm động (dynamic bullets).
+```bash
+# Cài đặt thư viện (nếu chưa cài)
+npm install
 
-2. **Đồng bộ Hai Chiều giữa Carousel và Bản đồ (Bi-directional Sync)**:
-   - Khi bạn vuốt trượt Carousel đến di tích nào, bản đồ bên dưới sẽ tự động cập nhật bảng soi thông tin di tích đó.
-   - Khi bạn **sờ chuột (hover)** vào bất kỳ điểm ghim nào trên bản đồ, Carousel bên trên sẽ tự động trượt nhẹ đến đúng thẻ di tích đó!
+# Khởi chạy môi trường phát triển (Hot Module Replacement)
+npm run dev
 
-3. **Bản đồ Tương tác Google Maps & Bảng Soi Trực Tiếp (Live Inspector)**:
-   - Tầng bản đồ vệ tinh Google Hybrid sắc nét, thấy rõ biển Rạn Nam Ô và từng ngõ xóm.
-   - Bảng soi thông tin bên phải cập nhật tức thì theo thời gian thực khi sờ chuột vào điểm ghim.
+# Đóng gói xuất bản cho Production (vào thư mục dist/)
+npm run build
 
-4. **Khung Skeleton Loader & 2 Cách Nạp Ảnh Cực Nhanh**:
-   - Bạn chỉ cần **nhấp trực tiếp vào bất kỳ khung Skeleton nào** trên web để tải ảnh từ máy tính/điện thoại (lưu tự động vào LocalStorage).
-   - Hoặc chép ảnh vào thư mục `LandingPage/images/` theo tên:
-     - `dinh-lang-nam-o.jpg` (Đình làng)
-     - `lang-ngu-ong.jpg` (Lăng Ngư Ông)
-     - `gieng-lang.jpg` (Giếng Lăng Chăm Pa)
-     - `mieu-ba-lieu-hanh.jpg` (Miếu Bà Liễu Hạnh)
-     - `mieu-ba-bo-bo.jpg` (Miếu Bà Bô Bô)
-     - `nghia-trung-nam-o.jpg` (Nghĩa Trủng)
-     - `dinh-am-linh.jpg` (Dinh Âm Linh)
+# Xem thử bản đóng gói production
+npm run preview
+```
+
+Server phát triển sẽ tự động mở tại: **`http://localhost:3000/`**
 
 ---
 
-## 🚀 CÁCH XEM NGAY:
-Mở file [index.html](file:///f:/Nam_Ô/LandingPage/index.html) hoặc truy cập **`http://localhost:8090/`** trên trình duyệt máy tính hoặc điện thoại để trải nghiệm độ mượt mà!
+## 📁 CẤU TRÚC THƯ MỤC DỰ ÁN (MODULAR ARCHITECTURE)
+
+Dự án được phân chia rõ ràng thành các module độc lập, dễ bảo trì và mở rộng:
+
+```text
+LandingPage/
+├── index.html                   # HTML chính của Landing Page
+├── package.json                 # Cấu hình scripts & dependencies Vite
+├── vite.config.js               # Cấu hình cổng dev (3000) & build output
+├── public/                      # Static assets phục vụ trực tiếp cho Vite
+│   ├── images/                  # Liên kết/chứa ảnh di tích
+│   └── videos/                  # Liên kết/chứa video tư liệu
+├── images/                      # Thư mục ảnh di tích
+├── videos/                      # Thư mục video tư liệu
+└── src/
+    ├── main.js                  # Entry point chính của ứng dụng
+    ├── data/
+    │   └── relics.js            # Dữ liệu chi tiết 7 di tích lịch sử Nam Ô
+    ├── styles/                  # Toàn bộ CSS modules độc lập
+    │   ├── main.css             # Điểm tập hợp import toàn bộ styles
+    │   ├── variables.css        # Hệ thống biến màu sắc Google, font, bóng đổ
+    │   ├── base.css             # Reset CSS, typography và buttons dùng chung
+    │   ├── navbar.css           # Glass Floating Navbar cố định đầu trang
+    │   ├── hero.css             # Hero Carousel & Swiper ảnh lớn
+    │   ├── map.css              # Bản đồ Leaflet, Dashboard, Inspector soi thông tin
+    │   ├── pins.css             # Marker ghim phong cách Google Pins & Popups
+    │   ├── cards.css            # Lưới 7 thẻ di tích tinh gọn & hiệu ứng pulse
+    │   ├── stories.css          # Dấu ấn văn hóa làng biển
+    │   ├── footer.css           # Chân trang Landing Page
+    │   ├── modal.css            # Modal chi tiết, Tabs (Info/Gallery/Video)
+    │   └── responsive.css       # Tinh chỉnh giao diện di động & tablet
+    └── modules/                 # Toàn bộ JavaScript logic chia theo nghiệp vụ
+        ├── state.js             # Quản lý State tập trung & LocalStorage
+        ├── carousel.js          # Điều khiển Swiper.js Touch Carousel
+        ├── map.js               # Khởi tạo Leaflet map, layers, markers, Auto-Tour
+        ├── cards.js             # Render thẻ di tích, lọc danh mục & cuộn mượt
+        ├── modal.js             # Cửa sổ chi tiết di tích, tab switching, video
+        └── upload.js            # Tải ảnh / chọn video từ máy tính
+```
+
+---
+
+## 🌟 TÍNH NĂNG NỔI BẬT
+
+1. **Touch Carousel Siêu Mượt (Swiper.js Engine)**:
+   - Trượt cảm ứng mượt mà 60fps trên điện thoại và máy tính.
+   - Bấm vào bất kỳ ảnh nào để trỏ đến thẻ di tích hoặc mở Modal chi tiết.
+2. **Đồng bộ Hai Chiều (Bi-directional Sync)**:
+   - Rê chuột trên bản đồ -> Tự động chuyển slide Carousel và cập nhật bảng Inspector bên cạnh.
+3. **Bản đồ Vệ tinh Google Maps & Ghim Tương tác**:
+   - Lớp bản đồ Google Vệ tinh (Hybrid), Google Đường bộ (Streets) và OSM.
+   - Ghim vị trí màu sắc nhận diện chuẩn theo từng số thứ tự di tích.
+4. **Modal Đa Phương Tiện (Tabs Thông Tin - Gallery - Video)**:
+   - Tab 1: Thông tin, tọa độ, niên đại, điểm nổi bật và quá trình lịch sử.
+   - Tab 2: Bộ sưu tập hình ảnh tư liệu phóng to sắc nét của từng di tích.
+   - Tab 3: Trình phát video tư liệu HTML5 sắc nét (100% cảnh quay di tích, không dính người), tự động nhận diện video của từng di tích kèm nút chọn video tùy chỉnh.
+5. **Video Trải Nghiệm & Tương Tác Cảm Ứng (Miếu Bà Bô Bô)**:
+   - Thẻ Miếu Bà Bô Bô tích hợp video: Khi rê chuột (`mouseenter`) trên máy tính hoặc chạm giữ tay (`touchstart`) trên điện thoại, video lập tức chuyển động phát mượt mà; khi thả tay / rời chuột sẽ tự động dừng.
+   - Nhấp nhanh để mở Modal xem chi tiết và phát video toàn màn hình.
+6. **Nạp & Lưu Ảnh/Video Tức Thì**:
+   - Tải ảnh trực tiếp từ máy tính/điện thoại, tự động lưu vào LocalStorage và cập nhật đồng bộ trên toàn bộ trang.

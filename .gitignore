@@ -22,3 +22,9 @@ ehthumbs.db
 *.tmp
 *.bak
 *.swp
+
+# Node.js & Vite build output
+node_modules/
+dist/
+.vite/
+

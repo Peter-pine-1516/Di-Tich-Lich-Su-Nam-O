@@ -26,8 +26,8 @@
   <!-- Swiper.js Touch Carousel CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
-  <!-- Custom Landing Page Stylesheet -->
-  <link rel="stylesheet" href="css/style.css" />
+  <!-- Custom Landing Page Stylesheet (Modular CSS) -->
+  <link rel="stylesheet" href="/src/styles/main.css" />
 </head>
 
 <body>
@@ -166,18 +166,14 @@
         <aside class="map-hover-inspector" id="map-inspector">
           <div class="inspector-meta-row">
             <span class="inspector-badge" id="insp-badge" style="background:#e8f0fe; color:#1a73e8;">
-              DI TÍCH 01 • CỘNG ĐỒNG
+              DI TÍCH • CỘNG ĐỒNG
             </span>
             <span class="inspector-rating">★ 5.0 (Nam Ô)</span>
           </div>
 
-          <!-- Khung ảnh có Skeleton Loader Shimmer -->
-          <div class="inspector-media-box" id="insp-media-box" onclick="triggerUpload(activeSiteId)">
-            <div class="photo-slide-skeleton" title="Nhấp để tải ảnh lên cho di tích này">
-              <span class="slide-skel-icon"><i class="fa-regular fa-image"></i></span>
-              <span class="slide-skel-badge"><i class="fa-solid fa-cloud-arrow-up"></i> Tải ảnh lên</span>
-            </div>
-            <img src="" id="insp-loaded-img" class="inspector-loaded-img" alt="Ảnh di tích" />
+          <!-- Khung ảnh di tích đại diện -->
+          <div class="inspector-media-box has-image" id="insp-media-box" onclick="openDetailModal(activeSiteId)" title="Bấm xem hình ảnh, video và tư liệu chi tiết">
+            <img src="images/dinh-lang-nam-o.webp" id="insp-loaded-img" class="inspector-loaded-img" alt="Ảnh di tích Đình Làng Nam Ô" />
           </div>
 
           <div>
@@ -292,7 +288,12 @@
        ==================================================================== -->
   <footer class="landing-footer">
     <div class="container">
-      <div class="footer-brand">NAM Ô THẤT BẢO • DẤU CHÂN DI SẢN</div>
+      <div class="footer-brand">
+        <span class="brand-icon-box">
+          <i class="fa-solid fa-compass"></i>
+        </span>
+        <span>NAM Ô THẤT BẢO • DẤU CHÂN DI SẢN</span>
+      </div>
       <p class="footer-desc">
         Dự án số hóa và lan tỏa giá trị cụm 7 di tích lịch sử làng cổ Nam Ô, phường Hòa Hiệp Nam, quận Liên Chiểu, thành
         phố Đà Nẵng.
@@ -310,27 +311,18 @@
     <div class="modal-sheet-dialog">
 
       <!-- Khung ảnh lớn trong Modal -->
-      <div class="modal-hero-box" id="modal-hero-box">
-        <div class="photo-slide-skeleton" id="modal-skeleton">
-          <span class="slide-skel-icon"><i class="fa-regular fa-image"></i></span>
-          <span class="slide-skel-badge"><i class="fa-solid fa-upload"></i> Nhấp để tải ảnh lên</span>
-        </div>
+      <div class="modal-hero-box has-image" id="modal-hero-box">
         <img src="" id="modal-hero-img" class="modal-hero-img-loaded" alt="Ảnh di tích" />
 
         <button class="modal-close-icon" onclick="closeDetailModal()" title="Đóng cửa sổ">
           <i class="fa-solid fa-xmark"></i>
-        </button>
-
-        <button class="modal-upload-pill" id="modal-btn-upload" title="Tải ảnh mới từ máy">
-          <i class="fa-solid fa-camera"></i>
-          <span>Tải / Thay ảnh</span>
         </button>
       </div>
 
       <!-- Header tiêu đề di tích -->
       <div class="modal-head-title-bar">
         <div>
-          <span class="inspector-badge" id="modal-badge" style="background:#e8f0fe; color:#1a73e8;">DI TÍCH 01</span>
+          <span class="inspector-badge" id="modal-badge" style="background:#e8f0fe; color:#1a73e8;">DI TÍCH</span>
           <h2 class="modal-title-main" id="modal-title">Tên Di Tích</h2>
           <div class="modal-subtitle-text" id="modal-subtitle">Phụ đề di tích</div>
         </div>
@@ -396,15 +388,9 @@
         <div class="modal-tab-pane" id="modal-pane-gallery">
           <div class="gallery-intro-bar">
             <div>
-              <h4 style="font-size:1rem; font-weight:700; color:var(--text-primary); margin:0;">Hình ảnh tư liệu di tích
-              </h4>
-              <p style="font-size:0.8rem; color:var(--text-secondary); margin:2px 0 0 0;">Nhấp vào ảnh bất kỳ để phóng
-                to xem ở khung trên.</p>
+              <h4 style="font-size:1rem; font-weight:700; color:var(--text-primary); margin:0;">Hình ảnh tư liệu di tích</h4>
+              <p style="font-size:0.8rem; color:var(--text-secondary); margin:2px 0 0 0;">Nhấp vào ảnh bất kỳ để xem ở khung lớn phía trên.</p>
             </div>
-            <button class="btn-inspector-outline" style="font-size:0.78rem; padding:6px 14px;"
-              onclick="triggerUpload(activeSiteId)">
-              <i class="fa-solid fa-cloud-arrow-up"></i> Tải thêm ảnh
-            </button>
           </div>
 
           <div class="modal-gallery-grid" id="modal-gallery-grid">
@@ -415,7 +401,7 @@
         <!-- ================= TAB 3: VIDEO LIÊN QUAN & HƯỚNG DẪN ================= -->
         <div class="modal-tab-pane" id="modal-pane-video">
           <div id="modal-video-container">
-            <!-- Render trình phát video hoặc video hướng dẫn qua js/main.js -->
+            <!-- Render trình phát video qua js/main.js -->
           </div>
         </div>
 
@@ -424,12 +410,6 @@
     </div>
   </div>
 
-  <!-- Input tàng hình để tải ảnh từ máy -->
-  <input type="file" id="relic-file-input" class="hidden-file-input" accept="image/*" />
-
-  <!-- Input tàng hình để chọn file video từ máy -->
-  <input type="file" id="relic-video-input" class="hidden-file-input" accept="video/mp4,video/*" />
-
   <!-- Leaflet JS Library -->
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
@@ -437,9 +417,8 @@
   <!-- Swiper.js Touch Carousel Library -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
-  <!-- Script dữ liệu & điều khiển -->
-  <script src="js/data.js"></script>
-  <script src="js/main.js"></script>
+  <!-- Main Application Entry (Modular ES Scripts) -->
+  <script type="module" src="/src/main.js"></script>
 </body>
 
 </html>
