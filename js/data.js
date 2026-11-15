@@ -199,9 +199,25 @@ const NAM_O_HERITAGE_SITES = [
     googleMapsUrl: "https://maps.app.goo.gl/NvikdMqoj2uPmXPH8",
     image: "images/mieu-ba-lieu-hanh.jpg",
     gallery: [
-      "images/mieu-ba-lieu-hanh.jpg"
+      "images/mieu-ba-lieu-hanh.jpg",
+      "images/mieu-ba-lieu-hanh-cong.jpg"
     ],
-    videos: [],
+    videos: [
+      {
+        title: "Khuôn Viên Tiền Đường & Không Gian Nội Điện Miếu Bà Liễu Hạnh",
+        src: "videos/mieu-ba-lieu-hanh.mp4",
+        description: "Thước phim tư liệu 11 giây ghi lại cổng tiền đường, cửa gỗ bức bàn và không gian nội điện trang nghiêm hướng ra ghềnh rạn biển Nam Ô.",
+        badge: "Phim Tư Liệu",
+        isGuide: false
+      },
+      {
+        title: "Án Thờ Chính Điện Phụng Thờ Vân Hương Thánh Mẫu Liễu Hạnh",
+        src: "videos/mieu-ba-lieu-hanh-2.mp4",
+        description: "Thước phim tư liệu 17 giây cận cảnh khám thờ sơn son thếp vàng, bài vị tam vị Thánh Mẫu và khói hương tôn nghiêm trong gian chính điện.",
+        badge: "Phim Tư Liệu",
+        isGuide: false
+      }
+    ],
     shortDesc: "Tọa lạc trên đồi cao lộng gió trông ra ghềnh rạn biển cả, nơi Thánh Mẫu Liễu Hạnh được bản địa hóa thành vị thần bảo hộ ngư trường cho tàu thuyền dong buồm.",
     fullHistory: [
       "Miếu Bà Liễu Hạnh tại cụm di tích Nam Ô không chỉ là một công trình tín ngưỡng đơn thuần mà còn là điểm hội tụ đặc sắc của lịch sử di dân mở cõi Đàng Trong và tâm thức người dân sông nước.",
