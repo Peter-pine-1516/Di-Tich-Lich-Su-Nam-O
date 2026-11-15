@@ -21,7 +21,36 @@ const NAM_O_HERITAGE_SITES = [
     gallery: [
       "images/dinh-lang-nam-o.webp"
     ],
-    videos: [],
+    videos: [
+      {
+        title: "Khám Phá Gian Thờ Chính Đình Làng Nam Ô",
+        src: "videos/dinh-lang-nam-o.mp4",
+        description: "Thước phim tư liệu ghi lại không gian nội điện trang nghiêm, tàn lọng vàng và án thờ rồng khảm xà cừ cổ kính của Đình Làng Nam Ô.",
+        badge: "Phim Tư Liệu",
+        isGuide: false
+      },
+      {
+        title: "Toàn Cảnh Khuôn Viên & Kiến Trúc Cổ Đình Làng Nam Ô",
+        src: "videos/dinh-lang-nam-o-2.mp4",
+        description: "Thước phim tư liệu 12 giây ghi lại toàn cảnh sân đình, mái ngói âm dương rêu phong và kiến trúc chạm khắc rồng phượng cổ kính của Đình Làng Nam Ô.",
+        badge: "Phim Tư Liệu",
+        isGuide: false
+      },
+      {
+        title: "Không Gian Tiền Đường & Cột Gỗ Chạm Khắc Tinh Xảo",
+        src: "videos/dinh-lang-nam-o-3.mp4",
+        description: "Thước phim tư liệu 13 giây ghi lại cận cảnh không gian tiền đường, hàng cột gỗ lim và các bức hoành phi, câu đối sơn son thếp vàng.",
+        badge: "Phim Tư Liệu",
+        isGuide: false
+      },
+      {
+        title: "Khám Phá Chi Tiết Nội Điện & Nơi Phụng Thờ Tiền Hiền",
+        src: "videos/dinh-lang-nam-o-4.mp4",
+        description: "Thước phim tư liệu toàn cảnh gần 30 giây bao quát trọn vẹn từ sân đình, tiền đường vào đến hậu tẩm nơi phụng thờ các bậc tiền hiền khai khẩn làng cổ Nam Ô.",
+        badge: "Phim Tư Liệu",
+        isGuide: false
+      }
+    ],
     shortDesc: "Ngôi đình cổ thờ cúng các bậc tiền hiền khai sáng làng chài Nam Ô, ban đầu tọa lạc tại thế đất phong thủy 'ngọc ngậm trong hàm phụng' bên vịnh Đà Nẵng bán nguyệt.",
     fullHistory: [
       "Đình làng Nam Ô thuộc làng chài cổ Nam Ô ở phường Hòa Hiệp Nam, quận Liên Chiểu, thành phố Đà Nẵng. Đây là một trong bảy cụm di tích lịch sử văn hóa của 'Nam Ô thất bảo' đã được xếp hạng di tích cấp thành phố.",
