@@ -181,7 +181,7 @@ export function renderModalVideo(site) {
         </div>
 
         <div class="modal-video-wrapper">
-          <video id="modal-active-video-player" controls preload="metadata" playsinline poster="${site.image}">
+          <video id="modal-active-video-player" controls preload="metadata" playsinline poster="${site.guideVideo?.poster || site.image}">
             <source src="${guideVideoSrc}" type="video/mp4">
             Trình duyệt không hỗ trợ phát thẻ video.
           </video>
@@ -204,6 +204,7 @@ export function renderModalVideo(site) {
     if (videos.length === 1) {
       const vidData = videos[0];
       const vidSrc = state.customVideos[site.id] || vidData.src;
+      const vidPoster = vidData.poster || site.image;
 
       container.innerHTML = `
         <div class="modal-video-card">
@@ -216,7 +217,7 @@ export function renderModalVideo(site) {
           </div>
 
           <div class="modal-video-wrapper">
-            <video id="modal-active-video-player" controls preload="metadata" playsinline poster="${site.image}">
+            <video id="modal-active-video-player" controls preload="metadata" playsinline poster="${vidPoster}">
               <source src="${vidSrc}" type="video/mp4">
               Trình duyệt không hỗ trợ phát thẻ video.
             </video>
@@ -231,6 +232,7 @@ export function renderModalVideo(site) {
       <div class="modal-videos-list" style="display: flex; flex-direction: column; gap: 24px;">
         ${videos.map((vidData, idx) => {
           const vidSrc = (idx === 0 && state.customVideos[site.id]) ? state.customVideos[site.id] : vidData.src;
+          const vidPoster = vidData.poster || site.image;
           return `
             <div class="modal-video-card">
               <div class="modal-video-header">
@@ -242,7 +244,7 @@ export function renderModalVideo(site) {
               </div>
 
               <div class="modal-video-wrapper">
-                <video class="modal-video-player-item" controls preload="metadata" playsinline poster="${site.image}">
+                <video class="modal-video-player-item" controls preload="metadata" playsinline poster="${vidPoster}">
                   <source src="${vidSrc}" type="video/mp4">
                   Trình duyệt không hỗ trợ phát thẻ video.
                 </video>
