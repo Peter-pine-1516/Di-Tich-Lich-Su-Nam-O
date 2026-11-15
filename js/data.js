@@ -81,9 +81,39 @@ const NAM_O_HERITAGE_SITES = [
     googleMapsUrl: "https://maps.app.goo.gl/Pyhdtg3YrB3RWhVE8",
     image: "images/lang-ngu-ong.jpg",
     gallery: [
-      "images/lang-ngu-ong.jpg"
+      "images/lang-ngu-ong.jpg",
+      "images/lang-ngu-ong-ngoc-cot.jpg"
     ],
-    videos: [],
+    videos: [
+      {
+        title: "Án Thờ Nam Hải Tôn Thần & Gian Thờ Ngọc Cốt Ông Chuông, Ông Kim",
+        src: "videos/lang-ngu-ong.mp4",
+        description: "Thước phim tư liệu 15 giây ghi lại gian chính điện trang nghiêm phụng thờ Nam Hải Cự Tộc Ngọc Lân Tôn Thần cùng khám thờ Ngọc Cốt linh thiêng.",
+        badge: "Phim Tư Liệu",
+        isGuide: false
+      },
+      {
+        title: "Toàn Cảnh Cổng Tứ Trụ Biểu & Khuôn Viên Sân Lăng Ngư Ông",
+        src: "videos/lang-ngu-ong-2.mp4",
+        description: "Thước phim tư liệu 21 giây ghi lại cổng tứ trụ uy nghi, câu đối khảm sành sứ, bức bình phong Long Mã và khuôn viên mặt tiền hướng biển của Lăng Ngư Ông.",
+        badge: "Phim Tư Liệu",
+        isGuide: false
+      },
+      {
+        title: "Kiến Trúc Nội Điện & Hệ Thống Hoành Phi Triều Tự Đức",
+        src: "videos/lang-ngu-ong-3.mp4",
+        description: "Thước phim tư liệu 26 giây độ nét cao ghi lại trọn vẹn kết cấu rường gỗ cổ truyền, các bức hoành phi câu đối thếp vàng lưu giữ dấu ấn lịch sử triều Tự Đức.",
+        badge: "Phim Tư Liệu",
+        isGuide: false
+      },
+      {
+        title: "Cận Cảnh Kho Tàng Ngọc Cốt Cá Voi Linh Thiêng Trăm Năm",
+        src: "videos/lang-ngu-ong-4.mp4",
+        description: "Thước phim tư liệu 10 giây ghi lại cận cảnh các bộ xương và ngọc cốt cá voi khổng lồ được ngư dân làng chài Nam Ô cung kính bảo quản hàng trăm năm.",
+        badge: "Phim Tư Liệu",
+        isGuide: false
+      }
+    ],
     shortDesc: "Được dựng từ năm 1802 trên nền đền thờ Hải thần Chăm Pa, nơi thờ cốt cá Ông – vị phúc thần bảo hộ ngư dân vượt qua sóng gió và là tâm điểm Lễ hội Cầu Ngư rực rỡ.",
     fullHistory: [
       "Đối với những làng chài ven biển Việt Nam, lễ hội Cầu Ngư và công trình thờ tự cá Ông (cá voi) là nét văn hóa tín ngưỡng đặc trưng thiêng liêng nhất. Lăng Cá Ông Nam Ô là nơi phụng thờ ngọc cốt của cá Ông – loài cá được xem là 'thần hộ mệnh', cứu tinh của ngư dân mỗi khi biển nổi giông bão đưa tàu thuyền cập bến an toàn.",

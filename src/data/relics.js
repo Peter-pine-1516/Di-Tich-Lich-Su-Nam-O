@@ -87,9 +87,30 @@ export const NAM_O_HERITAGE_SITES = [
     ],
     videos: [
       {
-        title: "Ngọc Cốt Cá Voi Linh Thiêng Tại Lăng Ngư Ông",
+        title: "Án Thờ Nam Hải Tôn Thần & Gian Thờ Ngọc Cốt Ông Chuông, Ông Kim",
         src: "videos/lang-ngu-ong.mp4",
-        description: "Thước phim tư liệu ghi lại gian thờ Ngọc Cốt Ông Chuông, Ông Kim và án thờ Nam Hải Cự Tộc Ngọc Lân Tôn Thần.",
+        description: "Thước phim tư liệu 15 giây ghi lại gian chính điện trang nghiêm phụng thờ Nam Hải Cự Tộc Ngọc Lân Tôn Thần cùng khám thờ Ngọc Cốt linh thiêng.",
+        badge: "Phim Tư Liệu",
+        isGuide: false
+      },
+      {
+        title: "Toàn Cảnh Cổng Tứ Trụ Biểu & Khuôn Viên Sân Lăng Ngư Ông",
+        src: "videos/lang-ngu-ong-2.mp4",
+        description: "Thước phim tư liệu 21 giây ghi lại cổng tứ trụ uy nghi, câu đối khảm sành sứ, bức bình phong Long Mã và khuôn viên mặt tiền hướng biển của Lăng Ngư Ông.",
+        badge: "Phim Tư Liệu",
+        isGuide: false
+      },
+      {
+        title: "Kiến Trúc Nội Điện & Hệ Thống Hoành Phi Triều Tự Đức",
+        src: "videos/lang-ngu-ong-3.mp4",
+        description: "Thước phim tư liệu 26 giây độ nét cao ghi lại trọn vẹn kết cấu rường gỗ cổ truyền, các bức hoành phi câu đối thếp vàng lưu giữ dấu ấn lịch sử triều Tự Đức.",
+        badge: "Phim Tư Liệu",
+        isGuide: false
+      },
+      {
+        title: "Cận Cảnh Kho Tàng Ngọc Cốt Cá Voi Linh Thiêng Trăm Năm",
+        src: "videos/lang-ngu-ong-4.mp4",
+        description: "Thước phim tư liệu 10 giây ghi lại cận cảnh các bộ xương và ngọc cốt cá voi khổng lồ được ngư dân làng chài Nam Ô cung kính bảo quản hàng trăm năm.",
         badge: "Phim Tư Liệu",
         isGuide: false
       }
