@@ -242,7 +242,29 @@ const NAM_O_HERITAGE_SITES = [
     gallery: [
       "images/dinh-am-linh.webp"
     ],
-    videos: [],
+    videos: [
+      {
+        title: "Khuôn Viên Sân Dinh & Bình Phong Long Mã Dinh Âm Linh",
+        src: "videos/dinh-am-linh.mp4",
+        description: "Thước phim tư liệu ghi lại bình phong Long Mã, rặng cây sứ đại nở hoa và không gian linh thiêng hướng biển của Dinh Âm Linh.",
+        badge: "Phim Tư Liệu",
+        isGuide: false
+      },
+      {
+        title: "Toàn Cảnh Cổng Trụ Biểu & Khuôn Viên Dinh Âm Linh",
+        src: "videos/dinh-am-linh-2.mp4",
+        description: "Thước phim tư liệu 11 giây ghi lại cận cảnh cổng tứ trụ uy nghi, hàng rào sơn son và không gian cổ kính thanh tịnh của Dinh Âm Linh.",
+        badge: "Phim Tư Liệu",
+        isGuide: false
+      },
+      {
+        title: "Kiến Trúc Cổ & Không Gian Phụng Thờ Dinh Âm Linh",
+        src: "videos/dinh-am-linh-3.mp4",
+        description: "Thước phim tư liệu 10 giây ghi lại không gian nội điện và cảnh quan hướng biển phụng thờ nghĩa sĩ vị quốc và thập loại chúng sinh.",
+        badge: "Phim Tư Liệu",
+        isGuide: false
+      }
+    ],
     shortDesc: "Khởi đầu từ sắc dụ vua Tự Đức nhằm tri ân các tử sĩ kháng Pháp năm 1858 và thờ phụng thập loại chúng sinh, thể hiện trọn vẹn nét đẹp nhân văn cao cả của người dân đất biển.",
     fullHistory: [
       "Dinh Âm Linh (còn được nhân dân quen gọi là Miếu Âm Hồn hay Dinh Cô Hồn) là một di tích văn hóa lịch sử mang đậm tính nhân văn sâu sắc của cộng đồng làng chài Nam Ô.",
