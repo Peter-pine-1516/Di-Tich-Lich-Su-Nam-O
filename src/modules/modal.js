@@ -159,9 +159,9 @@ export function renderModalVideo(site) {
 
   // TRƯỜNG HỢP 1: MIẾU BÀ BÔ BÔ (VIDEO HƯỚNG DẪN ĐƯỜNG ĐI VÀO)
   if (site.id === "mieu-ba-bo-bo") {
-    if (tabVideoTitle) tabVideoTitle.innerText = "Video Hướng Dẫn Đường Đi";
+    if (tabVideoTitle) tabVideoTitle.innerText = "Video Hướng Dẫn";
     if (tabVideoBadge) {
-      tabVideoBadge.style.display = "inline-block";
+      tabVideoBadge.style.display = "inline-flex";
       tabVideoBadge.innerText = "Chỉ đường";
       tabVideoBadge.style.background = "#fa7b17";
     }
@@ -196,7 +196,7 @@ export function renderModalVideo(site) {
   if (videos.length > 0) {
     if (tabVideoTitle) tabVideoTitle.innerText = "Video Tư Liệu";
     if (tabVideoBadge) {
-      tabVideoBadge.style.display = "inline-block";
+      tabVideoBadge.style.display = "inline-flex";
       tabVideoBadge.innerText = videos.length;
       tabVideoBadge.style.background = "#1a73e8";
     }
