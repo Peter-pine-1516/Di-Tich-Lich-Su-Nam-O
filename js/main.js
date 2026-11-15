@@ -71,15 +71,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
           <img src="${imgSrc}" class="slide-real-image" id="slide-img-${site.id}" alt="${site.title}" onerror="handleSlideImgError('${site.id}')" onload="handleSlideImgSuccess('${site.id}')" />
 
-          <!-- Bảng tiêu đề tối giản phủ nổi lên ảnh -->
+          <!-- Bảng tiêu đề: Chỉ để đúng tên địa danh (Viết hoa toàn bộ) -->
           <div class="slide-overlay-caption">
             <div class="slide-overlay-title">
-              <span style="color:${pinColor};">●</span>
-              <span>${site.number}. ${site.title}</span>
-            </div>
-            <div class="slide-overlay-hint">
-              <span>Xem chi tiết & Media</span>
-              <i class="fa-solid fa-expand"></i>
+              <span>${site.title.toUpperCase()}</span>
             </div>
           </div>
 

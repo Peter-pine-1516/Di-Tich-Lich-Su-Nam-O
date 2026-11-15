@@ -100,7 +100,7 @@ export const NAM_O_HERITAGE_SITES = [
     coordinates: { lat: 16.115226406425457, lng: 108.1305741322122 },
     address: "Tổ 47 (sát cạnh Lăng Ngư Ông), P. Hòa Hiệp Nam, Q. Liên Chiểu, TP. Đà Nẵng",
     plusCode: "448J+54 Liên Chiểu, Đà Nẵng",
-    googleMapsUrl: "https://maps.app.goo.gl/t6z2a45Y73E36rW47",
+    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=16.1152264,108.1305741",
     image: "images/gieng-lang.webp",
     gallery: [
       "images/gieng-lang.webp",
@@ -184,7 +184,7 @@ export const NAM_O_HERITAGE_SITES = [
     coordinates: { lat: 16.11737077883045, lng: 108.12926576991136 },
     address: "Ngõ cổ khối phố Nam Ô 2, P. Hòa Hiệp Nam, Q. Liên Chiểu, TP. Đà Nẵng",
     plusCode: "448H+WP Liên Chiểu, Đà Nẵng",
-    googleMapsUrl: "https://maps.app.goo.gl/9T2CjN67vK8a8q1t5",
+    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=16.1173708,108.1292658",
     image: "images/mieu-ba-bo-bo.png",
     hoverVideo: "videos/mieu-ba-bo-bo.mp4",
     gallery: [
