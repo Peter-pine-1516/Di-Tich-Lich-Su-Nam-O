@@ -116,7 +116,29 @@ const NAM_O_HERITAGE_SITES = [
     gallery: [
       "images/gieng-lang.webp"
     ],
-    videos: [],
+    videos: [
+      {
+        title: "Cận Cảnh Miệng Giếng Vuông Cổ Chăm Pa (Giếng Lăng)",
+        src: "videos/gieng-lang.mp4",
+        description: "Thước phim tư liệu quay cận cảnh cấu trúc giếng vuông bằng đá và gạch độc đáo của nền văn minh Chăm Pa cổ hàng trăm năm tuổi.",
+        badge: "Phim Tư Liệu",
+        isGuide: false
+      },
+      {
+        title: "Toàn Cảnh Bờ Kè & Kiến Trúc Thành Giếng Vuông Cổ",
+        src: "videos/gieng-lang-2.mp4",
+        description: "Thước phim tư liệu 10 giây ghi lại trọn vẹn bờ kè đá, nền lát gạch, 4 trụ đá góc và cấu trúc thành giếng vuông vững chãi được bảo tồn nguyên vẹn tại Giếng Lăng.",
+        badge: "Phim Tư Liệu",
+        isGuide: false
+      },
+      {
+        title: "Khuôn Viên Cổ Kính Giếng Lăng Bên Cạnh Lăng Ngư Ông",
+        src: "videos/gieng-lang-3.mp4",
+        description: "Thước phim tư liệu 13 giây sắc nét bao quát không gian Giếng Lăng nép mình dưới bóng cây cổ thụ, bên bức tường vàng rêu phong của quần thể di tích Lăng Ông Nam Ô.",
+        badge: "Phim Tư Liệu",
+        isGuide: false
+      }
+    ],
     shortDesc: "Giếng cổ Chăm Pa hàng trăm năm tuổi kỳ lạ: nằm sát mép sóng biển mặn nhưng nước luôn ngọt thanh, trong vắt và không bao giờ cạn cả trong mùa hạn hán khốc liệt.",
     fullHistory: [
       "Giếng Lăng (hay còn gọi là Giếng Hời Nam Ô) sở hữu một vị trí địa lý vô cùng độc đáo ngay dưới chân đèo Hải Vân hiểm trở, kề bên cửa biển. Đây là một trong những chứng tích cổ xưa nhất minh chứng cho thời kỳ cộng cư và phát triển rực rỡ của văn minh Chăm Pa trên dải đất Đà Nẵng.",
