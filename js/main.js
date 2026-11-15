@@ -250,7 +250,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("ban-do").scrollIntoView({ behavior: "smooth" });
 
     setTimeout(() => {
-      state.map.flyTo([site.coordinates.lat, site.coordinates.lng], 17, { duration: 0.9 });
+      state.map.flyTo([site.coordinates.lat + 0.0006, site.coordinates.lng], 17, { duration: 0.9 });
       activatePin(site.id);
       updateInspector(site);
 
@@ -316,7 +316,7 @@ document.addEventListener("DOMContentLoaded", () => {
         html: pinHtml,
         iconSize: [36, 44],
         iconAnchor: [18, 44],
-        popupAnchor: [0, -42]
+        popupAnchor: [0, -44]
       });
 
       const marker = L.marker([site.coordinates.lat, site.coordinates.lng], {
@@ -327,19 +327,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const popupContent = `
         <div class="google-popup-card">
-          <div style="display:flex; justify-content:space-between; align-items:center;">
-            <span style="font-size:0.7rem; font-weight:700; color:${pinColor}; background:${pinColor}15; padding:2px 8px; border-radius:10px;">
+          <div class="google-popup-header">
+            <span class="google-popup-badge" style="color:${pinColor}; background:${pinColor}18;">
               DI TÍCH ${site.number}
             </span>
-            <span style="font-size:0.7rem; color:#f29900; font-weight:600;">★ 5.0</span>
+            <span class="google-popup-rating">★ 5.0</span>
           </div>
-          <div style="font-size:0.95rem; font-weight:700; color:#0f172a; margin-top:4px;">${site.title}</div>
-          <div style="font-size:0.76rem; color:#475569; line-height:1.45;">${site.shortDesc}</div>
-          <div style="display:flex; gap:6px; margin-top:8px;">
-            <button onclick="openDetailModal('${site.id}')" style="background:#1a73e8; color:#fff; border:none; padding:5px 12px; border-radius:14px; font-size:0.74rem; font-weight:600; cursor:pointer;">
+          <div class="google-popup-title">${site.title}</div>
+          <div class="google-popup-desc">${site.shortDesc}</div>
+          <div class="google-popup-actions">
+            <button onclick="openDetailModal('${site.id}')" class="google-popup-btn primary">
               Xem chi tiết
             </button>
-            <a href="${site.googleMapsUrl}" target="_blank" style="background:#fff; color:#1a73e8; border:1px solid #dadce0; padding:5px 12px; border-radius:14px; font-size:0.74rem; text-decoration:none; font-weight:600;">
+            <a href="${site.googleMapsUrl}" target="_blank" class="google-popup-btn secondary">
               Chỉ đường
             </a>
           </div>
@@ -347,9 +347,11 @@ document.addEventListener("DOMContentLoaded", () => {
       `;
 
       const popup = L.popup({
-        offset: [0, -38],
+        offset: [0, -2],
         closeButton: false,
-        autoPan: false
+        autoPan: true,
+        autoPanPaddingTopLeft: [20, 20],
+        autoPanPaddingBottomRight: [20, 20]
       }).setContent(popupContent);
 
       marker.bindPopup(popup);
@@ -848,7 +850,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function stepAutoTour() {
     if (state.tourIndex >= NAM_O_HERITAGE_SITES.length) state.tourIndex = 0;
     const site = NAM_O_HERITAGE_SITES[state.tourIndex];
-    state.map.flyTo([site.coordinates.lat, site.coordinates.lng], 17, { duration: 1 });
+    state.map.flyTo([site.coordinates.lat + 0.0006, site.coordinates.lng], 17, { duration: 1 });
     activatePin(site.id);
     updateInspector(site);
 
