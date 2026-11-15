@@ -421,8 +421,8 @@ export const NAM_O_HERITAGE_SITES = [
 ];
 
 export const MAP_CONFIG = {
-  center: [16.1146, 108.1292],
-  zoom: 16,
+  center: [16.1147, 108.1292],
+  zoom: 15.6,
   minZoom: 14,
   maxZoom: 19
 };

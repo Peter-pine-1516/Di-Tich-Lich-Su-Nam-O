@@ -418,8 +418,8 @@ const NAM_O_HERITAGE_SITES = [
 
 // Bản đồ tâm điểm (Center point: Làng cổ Nam Ô)
 const MAP_CONFIG = {
-  center: [16.1150, 108.1296],
-  zoom: 16,
+  center: [16.1147, 108.1292],
+  zoom: 15.6,
   minZoom: 14,
   maxZoom: 19
 };

@@ -268,6 +268,7 @@ document.addEventListener("DOMContentLoaded", () => {
       zoom: MAP_CONFIG.zoom,
       minZoom: MAP_CONFIG.minZoom,
       maxZoom: MAP_CONFIG.maxZoom,
+      zoomSnap: 0.1,
       scrollWheelZoom: false
     });
 
