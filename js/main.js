@@ -212,7 +212,7 @@ document.addEventListener("DOMContentLoaded", () => {
           ${hasVideo ? `
             <div class="relic-simple-video-pill">
               <i class="fa-solid fa-play"></i>
-              <span>${site.id === 'mieu-ba-bo-bo' ? 'Video chỉ đường' : 'Video'}</span>
+              <span>${site.id === 'mieu-ba-bo-bo' && (!site.videos || site.videos.length <= 1) ? 'Video chỉ đường' : 'Video'}</span>
             </div>
           ` : ''}
 
@@ -622,8 +622,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const tabVideoTitle = document.getElementById("tab-video-title");
     const tabVideoBadge = document.getElementById("tab-video-badge");
 
-    // TRƯỜNG HỢP 1: MIẾU BÀ BÔ BÔ (VIDEO HƯỚNG DẪN ĐƯỜNG ĐI VÀO)
-    if (site.id === "mieu-ba-bo-bo") {
+    // TRƯỜNG HỢP 1: MIẾU BÀ BÔ BÔ (VIDEO HƯỚNG DẪN ĐƯỜNG ĐI VÀO NẾU CHƯA CÓ VIDEO TƯ LIỆU)
+    if (site.id === "mieu-ba-bo-bo" && (!site.videos || site.videos.length === 0)) {
       if (tabVideoTitle) tabVideoTitle.innerText = "Video Hướng Dẫn Đường Đi";
       if (tabVideoBadge) {
         tabVideoBadge.style.display = "inline-block";

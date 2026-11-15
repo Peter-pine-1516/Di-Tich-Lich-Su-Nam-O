@@ -232,22 +232,44 @@ const NAM_O_HERITAGE_SITES = [
     googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=16.11737077883045,108.12926576991136",
     image: "images/mieu-ba-bo-bo.png",
     gallery: [
-      "images/mieu-ba-bo-bo.png"
+      "images/mieu-ba-bo-bo.png",
+      "images/mieu-ba-bo-bo-altar.jpg"
     ],
     guideVideo: {
       title: "Video Hướng Dẫn Đường Đi Vào Miếu Bà Bô Bô",
-      src: "videos/huong-dan-mieu-ba-bo-bo.mp4",
+      src: "videos/mieu-ba-bo-bo.mp4",
       description: "Video ghi lại lộ trình di chuyển chi tiết từ trục đường chính qua các ngõ nhỏ trong làng cổ Nam Ô vào tận cổng Miếu Bà Bô Bô.",
       badge: "Hướng Dẫn Đường Đi",
       isGuide: true
     },
     videos: [
       {
-        title: "Video Hướng Dẫn Đường Đi Vào Miếu Bà Bô Bô",
-        src: "videos/huong-dan-mieu-ba-bo-bo.mp4",
-        description: "Lối vào Miếu Bà Bô Bô qua các ngõ nhỏ trong làng cổ, video này sẽ hướng dẫn chi tiết đường đi từ ngã ba chính đến tận cổng miếu.",
-        badge: "Hướng Dẫn Đường Đi",
-        isGuide: true
+        title: "Video Trải Nghiệm & Lối Vào Miếu Bà Bô Bô Qua Ngõ Cổ Nam Ô",
+        src: "videos/mieu-ba-bo-bo.mp4",
+        description: "Thước phim tư liệu 47 giây ghi lại hành trình từ con ngõ cổ Nam Ô dẫn vào khuôn viên và gian thờ Nữ thần Chăm Pa Bô Bô Phu nhân.",
+        badge: "Phim Tư Liệu",
+        isGuide: false
+      },
+      {
+        title: "Toàn Cảnh Kiến Trúc Cổ Kính & Mặt Tiền Ba Gian Miếu Bà Bô Bô",
+        src: "videos/mieu-ba-bo-bo-2.mp4",
+        description: "Thước phim tư liệu 7 giây độ nét cao ghi lại cổng vào ba gian cửa gỗ lim, mái ngói âm dương phủ rêu phong cùng câu đối khảm sành sứ trước tiền đường.",
+        badge: "Phim Tư Liệu",
+        isGuide: false
+      },
+      {
+        title: "Án Thờ Chính Điện Phụng Thờ Thượng Đẳng Thần Bô Bô Phu Nhân",
+        src: "videos/mieu-ba-bo-bo-3.mp4",
+        description: "Thước phim tư liệu 8 giây cận cảnh gian thờ chính trang nghiêm, án thờ chạm khắc rồng phượng và khám thờ Thần Nữ Bô Bô được phong sắc Thượng Đẳng Thần.",
+        badge: "Phim Tư Liệu",
+        isGuide: false
+      },
+      {
+        title: "Hành Trình Di Chuyển Xuyên Qua Các Ngõ Làng Chài Cổ Đến Miếu Bà",
+        src: "videos/mieu-ba-bo-bo-4.mp4",
+        description: "Thước phim tư liệu 52 giây ghi lại trọn vẹn lộ trình di chuyển chân thực dọc theo các con ngõ quanh co đậm chất làng chài cổ xưa Nam Ô dẫn đến ngôi miếu thiêng.",
+        badge: "Phim Tư Liệu",
+        isGuide: false
       }
     ],
     shortDesc: "Ngôi miếu cổ kính hơn 150 năm bảo tồn vẹn nguyên nét kiến trúc kết hợp vật liệu gạch Chăm và tay nghề thợ Việt, minh chứng cho sự dung hợp văn hóa Chăm - Việt sâu sắc.",

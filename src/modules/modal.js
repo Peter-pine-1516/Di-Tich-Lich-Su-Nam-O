@@ -157,8 +157,8 @@ export function renderModalVideo(site) {
   const tabVideoTitle = document.getElementById("tab-video-title");
   const tabVideoBadge = document.getElementById("tab-video-badge");
 
-  // TRƯỜNG HỢP 1: MIẾU BÀ BÔ BÔ (VIDEO HƯỚNG DẪN ĐƯỜNG ĐI VÀO)
-  if (site.id === "mieu-ba-bo-bo") {
+  // TRƯỜNG HỢP 1: MIẾU BÀ BÔ BÔ (VIDEO HƯỚNG DẪN ĐƯỜNG ĐI VÀO NẾU CHƯA CÓ VIDEO TƯ LIỆU)
+  if (site.id === "mieu-ba-bo-bo" && (!site.videos || site.videos.length === 0)) {
     if (tabVideoTitle) tabVideoTitle.innerText = "Video Hướng Dẫn";
     if (tabVideoBadge) {
       tabVideoBadge.style.display = "inline-flex";
