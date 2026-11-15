@@ -709,8 +709,8 @@ document.addEventListener("DOMContentLoaded", () => {
       container.innerHTML = `
         <div class="modal-videos-list" style="display: flex; flex-direction: column; gap: 24px;">
           ${videos.map((vidData, idx) => {
-            const vidSrc = (idx === 0 && state.customVideos[site.id]) ? state.customVideos[site.id] : vidData.src;
-            return `
+        const vidSrc = (idx === 0 && state.customVideos[site.id]) ? state.customVideos[site.id] : vidData.src;
+        return `
               <div class="modal-video-card">
                 <div class="modal-video-header">
                   <span class="modal-video-badge">
@@ -728,7 +728,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 </div>
               </div>
             `;
-          }).join('')}
+      }).join('')}
         </div>
       `;
 
