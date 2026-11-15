@@ -302,13 +302,28 @@ const NAM_O_HERITAGE_SITES = [
     googleMapsUrl: "https://maps.app.goo.gl/Wf91J5P9F4rgxbiP9",
     image: "images/nghia-trung-nam-o.jpg",
     gallery: [
-      "images/nghia-trung-nam-o.jpg"
+      "images/nghia-trung-nam-o.jpg",
+      "images/nghia-trung-nam-o-bia-mo.jpg"
     ],
     videos: [
       {
-        title: "Thước Phim Tư Liệu Nghĩa Trủng Nam Ô",
+        title: "Bia Tưởng Niệm & Quần Thể Khuôn Viên Nghĩa Trủng Nam Ô",
         src: "videos/nghia-trung-nam-o.mp4",
-        description: "Thước phim tư liệu ghi lại khuôn viên và các phần mộ nghĩa sĩ trận vong năm 1858 tại Nghĩa Trủng Nam Ô.",
+        description: "Thước phim tư liệu 8 giây ghi lại toàn cảnh bia di tích lịch sử và khuôn viên quần thể Nghĩa Trủng Nam Ô trang nghiêm hướng biển.",
+        badge: "Phim Tư Liệu",
+        isGuide: false
+      },
+      {
+        title: "Chính Điện Đền Thờ & Án Tiền 'Nghĩa Liệt' Tưởng Niệm Anh Linh Nghĩa Sĩ",
+        src: "videos/nghia-trung-nam-o-2.mp4",
+        description: "Thước phim tư liệu 40 giây cận cảnh gian chính điện đền thờ, án tiền chạm khắc tinh xảo chữ 'Nghĩa Liệt' cùng hệ thống câu đối tưởng niệm nghĩa binh vị quốc vong thân năm 1858.",
+        badge: "Phim Tư Liệu",
+        isGuide: false
+      },
+      {
+        title: "Toàn Cảnh Quần Thể Hàng Trăm Phần Mộ Nghĩa Sĩ Trận Vong 1858",
+        src: "videos/nghia-trung-nam-o-3.mp4",
+        description: "Thước phim tư liệu 20 giây ghi lại trọn vẹn khu an táng hàng trăm ngôi mộ của các tướng sĩ, nghĩa binh triều Nguyễn và nhân dân anh dũng hy sinh trong trận đầu kháng chiến chống liên quân Pháp - Tây Ban Nha.",
         badge: "Phim Tư Liệu",
         isGuide: false
       }
